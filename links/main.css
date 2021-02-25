@@ -129,9 +129,6 @@ body main>ul {
     font-size: 12px;
     line-height: 20px
 }
-
-body main>ul li {}
-
 body main>ul li a {
     text-transform: capitalize;
     text-decoration: underline;
