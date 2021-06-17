@@ -17,15 +17,32 @@
 </head>
 
 <body class='page'>
-    <div class="center">
-        <ul>
-            <li style="padding-bottom:4em"><img src="../media/blog/empty_game/empty_logo.png" alt="empty"></li>
-            <li>Coming to Windows, Linux and Mac</li>
-        </ul>
+    <div class="logo"><img src="../media/interface/logo_white.png" alt="meeting_logo" style="height: 30%; width: 30%;">
+    </div>
+    <div class="bg">
+        <div class="center">
+            <ul>
+                <li style="padding-bottom:4em"><img src="../media/blog/empty_game/meeting_logo_white.png" alt="meeting"
+                        style="width:600px;"></li>
+                <li style="color: white;">Windows, Linux and Mac</li>
+            </ul>
+        </div>
     </div>
 </body>
 
 <style>
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
     .center {
         margin: 0;
         font-family: 'input_mono_medium';
@@ -40,6 +57,14 @@
     ul {
         list-style-type: none;
         margin: auto;
+    }
+
+    .bg {
+        background-image: url("../media/blog/empty_game/meeting.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     @font-face {

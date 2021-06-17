@@ -33,6 +33,7 @@
             <li><a href='#colors'>colors</a></li>
             <li><a href='#elevation'>elevation</a></li>
             <li><a href='#icons'>icons</a></li>
+            <li><a href='#shapes'>shapes</a></li>
             <li><a href='#spacing'>spacing</a></li>
             <li><a href='#typography'>typography</a></li>
         </ul>
@@ -75,6 +76,24 @@
             </div>
         </div>
         Use a plain, solid shadow or a simple pattern
+        <hr>
+
+        <h2 id='typography'>Typography</h2>
+        <fontShift>Use serif, sans serif or monospace fonts. <mono>Avoid display / handwritten ones</mono>
+        </fontShift> <br>
+        <p style="font-family: Georgia, 'Times New Roman', Times, serif;">The title of this page is purely ironic</p>
+        <div class="fontScale">Scales: Try to limit text scaling to three sizes - <titleScale>title</titleScale>,
+            <headingScale>heading</headingScale> and body for example.
+        </div>
+        Formatting: Avoid underlines, strikethroughs and italics. <br> Indicate hyperlinks using
+        <a href="https://i.pinimg.com/736x/f8/64/d3/f864d32a953b857731dccef1d872ab84.jpg" target="_blank">
+            <bold>bold text,</bold>
+        </a>
+        <a href="https://i.pinimg.com/736x/f8/64/d3/f864d32a953b857731dccef1d872ab84.jpg" target="_blank">
+            <linkHighlight>colored highlighting</linkHighlight>
+        </a>or
+        <a href="https://i.pinimg.com/736x/f8/64/d3/f864d32a953b857731dccef1d872ab84.jpg"
+            target="_blank">[brackets]</a>.
         <hr>
 
     </main>
@@ -123,9 +142,41 @@
         border-spacing: 30px 0;
     }
 
+    .fontShift mono {
+        font-family: 'input_mono_regular';
+    }
+
+    .fontScale titleScale {
+        font-size: xx-large;
+    }
+
+    .fontScale headingScale {
+        font-size: x-large;
+    }
+
+    .fontScale bodyScale {
+        font-size: medium;
+    }
+
+    a bold {
+        font-weight: bold;
+    }
+
+    a linkHighlight:hover {
+        background: black;
+        color: white;
+    }
+
     @font-face {
         font-family: 'Camsay';
         src: url('../media/fonts/Camsay.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'input_mono_regular';
+        src: url('../media/fonts/input_mono_regular.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }
