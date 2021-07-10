@@ -14,7 +14,6 @@
     <link rel='icon' type='image/png' href='../media/interface/logo.png'>
     <link rel='apple-touch-icon' href='../media/interface/logo.png' />
     <link rel='stylesheet' type='text/css' href='../links/main.css'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>antler</title>
 </head>
 
@@ -78,11 +77,44 @@
         Use a plain, solid shadow or a simple pattern
         <hr>
 
+        <h2 id='icons'>Icons</h2>
+        Use icons from a single icon pack
+        <br>
+        Stick to a single color for icons
+        <hr>
+
+        <h2 id='shapes'>Shapes</h2>
+        Use only circles and simple polygons
+        <br><br>
+        <div class="row">
+            <div class="shapeCircle"></div>
+            <div class="shapeSquare"></div>
+            <div class="shapeTriangle"></div>
+        </div>
+        If a shape forms the central focus of the application, the non-neutral primary color may be applied to it. Else,
+        stick to netural shades <br>
+        For example, the heading needle on a compass app may be colored the primary color
+        <hr>
+
+        <h2 id='spacing'>Spacing</h2>
+        <div style="background-color: #555555; color: white; margin-bottom: 0; height: 4px;"></div>4px - xs
+        <br><br>
+        <div style="background-color: #555555; color: white; margin-bottom: 0; height: 8px;"></div>8px - s
+        <br><br>
+        <div style="background-color: #555555; color: white; margin-bottom: 0; height: 12px;"></div>12px - m
+        <br><br>
+        <div style="background-color: #555555; color: white; margin-bottom: 0; height: 20px;"></div>20px - l
+        <br><br>
+        <div style="background-color: #555555; color: white; margin-bottom: 0; height: 32px;"></div>32px - xl
+        <br><br>
+        <div style="background-color: #555555; color: white; margin-bottom: 0; height: 40px;"></div>40px - xxl
+        <hr>
+
         <h2 id='typography'>Typography</h2>
         <fontShift>Use serif, sans serif or monospace fonts. <mono>Avoid display / handwritten ones</mono>
         </fontShift> <br>
         <p style="font-family: Georgia, 'Times New Roman', Times, serif;">The title of this page is purely ironic</p>
-        <div class="fontScale">Scales: Try to limit text scaling to three sizes - <titleScale>title</titleScale>,
+        <div class="fontScale">Limit text scaling to three sizes - <titleScale>title</titleScale>,
             <headingScale>heading</headingScale> and body for example.
         </div>
         Formatting: Avoid underlines, strikethroughs and italics. <br> Indicate hyperlinks using
@@ -100,6 +132,10 @@
 </body>
 
 <style>
+    .html {
+        background: rgb(235, 217, 217);
+    }
+
     .square {
         position: absolute;
         height: 200px;
@@ -108,6 +144,37 @@
         background-color: white;
         top: -10px;
         left: -15px;
+    }
+
+    .shapeCircle {
+        display: inline-block;
+        margin-right: 20px;
+        height: 100px;
+        width: 100px;
+        border: 2px solid black;
+        background-color: white;
+        border-radius: 50%;
+    }
+
+    .shapeSquare {
+        /* position: absolute; */
+        display: inline-block;
+        margin-right: 30px;
+        height: 100px;
+        width: 100px;
+        border: 2px solid black;
+        background-color: black;
+    }
+
+    .shapeTriangle {
+        display: inline-block;
+        margin-right: 20px;
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-left: 100px solid #555555;
+        border-bottom: 50px solid transparent;
+        background-color: white;
     }
 
     .dotShadow {
