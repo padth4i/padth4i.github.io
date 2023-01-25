@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>Classic Cryptanalysis</title>
+  </head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <h4><b>CRYPTANALYSIS</b></h4>
+    
+  </div>
+  <div class="w3-bar-block">
+    <a href="#shift" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>SHIFT</a> 
+    <a href="#hill" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>HILL</a> 
+    <a href="#vigenere" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>VIGENERE</a>
+  </div>
+</nav>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:300px">
+
+  <header id="shift">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>Shift Cipher</b></h1>
+    <p>Attack: Bruteforce attack</p>
+    Enter encrypted text: <input type="text" name="shiftInput" id="shiftInput" value="DSZQUPHSBQIZ"> <br> <br>
+    <span class="w3-button w3-large w3-border w3-hover-text-grey" onclick="get_shift_key()">Get key</span> <br>
+    <p id="shiftText"></p>
+    
+  </header>
+  
+  <div class="w3-container w3-padding-large w3-grey" id="hill">
+    <h1><b>Hill Cipher</b></h1>
+    <p>Attack: Known ciphertext (Matrix Manipulations)</p>
+    Enter plaintext:&ensp;&emsp;<input type="text" name="hillPlainInput" id="hillPlainInput" value="FRIDAY"> <br>
+    Enter ciphertext:&emsp;<input type="text" name="hillCipherInput" id="hillCipherInput" value="PQCFKU"> <br>
+    Enter key size:&emsp;&emsp;<input type="text" name="hillMInput" id="hillMInput" value="2"> <br> <br>
+    <span class="w3-button w3-large w3-border w3-hover-text-grey" onclick="get_hill_key()">Get key</span> <br> <br>
+    <p id="hillKeyText"></p>
+    <p id="hillDecryptText"></p>
+  </div>
+  
+  <div class="w3-row-padding w3-padding-16" id="vigenere">
+    <h1><b>Vigenere Cipher</b></h1>
+    <p>Attack: Known plaintext (Index of Coincidence and Chi-Square Statistic)</p>
+    <textarea name="vigenereInput" id="vigenereInput" rows="4" cols="50">FMILVDAPQHTMJLJMEOMCGUWEOMTSNDXLAKZCBPSPVNGVIZEIWFMILVDAPMSJSDHNMILPPTAXGLZZGWAAFIOAUBXUKTSWATZHVLGZBPRZKVQRALVGTQTZXYJQCVOSLLVPTOMJLQZNVJGZKTDZSGZAPPCIJHTCCNJIGOLXCIIKGICKWFEGBXTIJGXMGSEGHKVVTSKAXMHHRUUQVHPHVJCBXVRJVGBTYQZFKABPWFXVMCJSELTIHAIUOKBWMVVWYQASECLJWJNLJGOMEOMCGUWEOIIKETPPQKZCBIOIKOQIGLGFERIIPFCWFMILVDAPQHTSWLGVXZXRCGVIVQVSPKPBWRDFMILVDAPQHTAYAEPXUTYQUQRZMJCPWLUEJUCCHLEEVGNULGKAVQHALVUQVRLTKLJIILZVFVALPXYAPIVPZVFRIGHHZYOIGLFFMPLQFGRMUIAPXPAPAJJLROCGIOEKSPGHAEKWQNPUSSBGKIVVVNGVIPWTGOXALXVDALTAIIEKVTKFPHTQDYWKSVMHALZKOMPUMEYEICIIUAUBXUKLAUPTKJIGOWIOIINCZXLXZWUWUKIKWTUXUMJEOMCAMFFGLQLPFO</textarea><br> <br>
+    <span class="w3-button w3-large w3-border w3-hover-text-grey" onclick="get_vigenere_key()">Get key</span> <br> <br>
+    <p id="vigenereOutput"></p>
+  </div>
+  
+</div>
+<script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.1/math.min.js" integrity="sha512-7+fUzDKxopLeVKiXTdoQQZBl6Zh9Bbl/NrZoowiddStpj7GXTUCM+LOPay4Wzxz14HazsoSsO96UFvvZqAH5rw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+function shift_encrypt(text, key) {
+  ciphertext = "";
+  for (i = 0; i < text.length; i++)
+    ciphertext += String.fromCharCode(
+      mod(text.charCodeAt(i) - 65 - key, 26) + 65
+    );
+
+  return ciphertext;
+}
+
+function get_shift_key() {
+  var input = document.getElementById("shiftInput").value;
+  var output = document.getElementById("shiftText");
+  text = "The possible plaintexts are as follows:<br/><br/>";
+  for (var i = 1; i < 26; i++) {
+    text += "Key " + i + " gives plaintext " + shift_encrypt(input.toUpperCase(), i) + "<br/>"
+  }
+  output.innerHTML = text;
+}
+
+function mod_inverse(a, m) {
+  for (let x = 1; x < m; x++) {
+    if (mod((mod(a, m) * mod(x, m)), m) == 1)
+      return x
+  }
+  return -1
+}
+
+function get_hill_key() {
+  var plain = document.getElementById("hillPlainInput").value.toUpperCase();
+  var cipher = document.getElementById("hillCipherInput").value.toUpperCase();
+  var m = document.getElementById("hillMInput").value;
+  m = parseInt(m, 10);
+  var keyOutput = document.getElementById("hillKeyText");
+  var decryptOutput = document.getElementById("hillDecryptText");
+  p = [];
+  c = [];
+  for (let i = 0; i < m; i++) {
+    p_temp = plain.slice(m*i, m*(i+1));
+    p_num = [];
+    c_temp = cipher.slice(m*i, m*(i+1));
+    c_num = [];
+    for (char in p_temp)
+      p_num[char] = p_temp[char].charCodeAt(0) - 65;
+    for (char in c_temp)
+      c_num[char] = c_temp[char].charCodeAt(0) - 65;
+    p.push(p_num);
+    c.push(c_num);
+  }
+  matP = math.matrix(p);
+  matC = math.matrix(c);
+  console.log(matP)
+  console.log(matC)
+  pDet = math.det(p);
+  pInv = math.inv(matP);
+  pConj = math.multiply(pInv, pDet);
+  pConjMod = math.mod(pConj, 26);
+  pDetMod = mod_inverse(pDet, 26);
+  pInvMod = math.multiply(pConjMod, pDetMod);
+  pInvMod = math.mod(pInvMod, 26);
+  
+  console.log(pInvMod);
+
+  kT = math.multiply(pInvMod, matC);
+  kT = math.mod(kT, 26);
+  k = math.transpose(kT);
+
+  kInv = math.inv(k);
+  kDet = math.det(k);
+  kConj = math.multiply(kInv, kDet);
+  kConjMod = math.mod(kConj, 26);
+  kDetMod = mod_inverse(kDet, 26);
+  kInvMod = math.multiply(kConjMod, kDetMod);
+  kInvMod = math.mod(kInvMod, 26);
+
+  decryptOutput.innerHTML = "The ciphertext can be decrypted using the matrix " + kInvMod + ".<br/>The plaintext can be encrypted using the matrix " + k + "."
+
+}
+
+function get_frequency(string) {
+  var freq = {};
+  for (var i = 0; i < string.length; i++) {
+    var character = string.charAt(i);
+    if (freq[character]) {
+      freq[character]++;
+    } else {
+      freq[character] = 1;
+    }
+  }
+
+  return freq;
+}
+
+function get_sequence(text, start, step) {
+  final = "";
+  for (var i = start; i < text.length; i += step) final += text[i];
+  
+  return final;
+}
+
+function get_chi_square_statistic(text, freqs) {
+  chi_square = 0;
+  english_letter_freq = {
+    E: 12.7,
+    T: 9.06,
+    A: 8.17,
+    O: 7.51,
+    I: 6.97,
+    N: 6.75,
+    S: 6.33,
+    H: 6.09,
+    R: 5.99,
+    D: 4.25,
+    L: 4.03,
+    C: 2.78,
+    U: 2.76,
+    M: 2.41,
+    W: 2.36,
+    F: 2.23,
+    G: 2.02,
+    Y: 1.97,
+    P: 1.93,
+    B: 1.29,
+    V: 0.98,
+    K: 0.77,
+    J: 0.15,
+    X: 0.15,
+    Q: 0.1,
+    Z: 0.07,
+  };
+  english_freq_keys = Object.keys(english_letter_freq);
+  for (letter in english_freq_keys) {
+    expected =
+      (text.length * english_letter_freq[english_freq_keys[letter]]) / 100;
+    if (typeof freqs[english_freq_keys[letter]] !== "undefined")
+      chi_square +=
+        Math.pow(freqs[english_freq_keys[letter]] - expected, 2) / expected;
+    else chi_square += expected;
+  }
+
+  return chi_square;
+}
+
+function get_ioc(text) {
+  d = {};
+  cleanedText = text.replace(/[^a-zA-Z]+/g, "").toUpperCase();
+  freqs = get_frequency(cleanedText);
+  alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  freqsum = 0;
+  for (letter in alphabet) {
+    if (typeof freqs[alphabet[letter]] !== "undefined")
+      freqsum += freqs[alphabet[letter]] * (freqs[alphabet[letter]] - 1);
+  }
+  N = text.length;
+  ioc = freqsum / (N * (N - 1));
+
+  return ioc;
+}
+
+function get_period(text) {
+  period_dict = {};
+  for (var key = 1; key < 15; key++) {
+    ioc = 0;
+    for (var i = 0; i < key; i++) {
+      sequence = get_sequence(text, i, key, false);
+      ioc += get_ioc(sequence);
+    }
+    avg_ioc = ioc / key;
+    period_dict[key] = avg_ioc;
+  }
+  max_period_dict = Object.keys(period_dict).reduce(function (filtered, key) {
+    if (period_dict[key] > 0.06) filtered[key] = period_dict[key];
+    return filtered;
+  }, {});
+
+  return Math.min.apply(Math, Object.keys(max_period_dict));
+}
+
+function get_vigenere_key() {
+  var input = document.getElementById("vigenereInput");
+  var output = document.getElementById("vigenereOutput");
+  var text = input.value;
+
+  cleanedText = text.replace(/[^a-zA-Z]+/g, '').toUpperCase();
+  freqs = get_frequency(cleanedText);
+  period = get_period(cleanedText);
+  cleanedText = text.replace(/[^a-zA-Z]+/g, "").toUpperCase();
+  key = "";
+  for (let letter = 0; letter < period; letter++) {
+    sequence = get_sequence(cleanedText, letter, period);
+    min_chi = 9999;
+    min_key = 0;
+    for (let i = 0; i < 26; i++) {
+      word = shift_encrypt(sequence, i);
+      subfreqs = get_frequency(word);
+      chi = get_chi_square_statistic(word, subfreqs);
+      console.log(chi);
+      if (chi < min_chi) {
+        min_chi = chi;
+        min_key = i;
+      }
+    }
+    key += String.fromCharCode((min_key % 26) + 65);
+
+  }
+  output.innerHTML = "Possible key is " + key;
+}
+</script>
+
+</body>
+</html>
