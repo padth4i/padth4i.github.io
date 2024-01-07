@@ -103,20 +103,20 @@ body main>* {
 body main>h1 {
     font-family: "alte_haas_grotesk_regular", "Helvetica Neue", Helvetica, Arial;
     font-size: 45px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     padding-bottom: 30px;
 }
 
 body main>h2 {
     font-family: "alte_haas_grotesk_bold", "Helvetica Neue", Helvetica, Arial;
     font-size: 30px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 body main>h3 {
     font-family: "alte_haas_grotesk_bold", "Helvetica Neue", Helvetica, Arial;
     font-size: 20px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 body main>img {
@@ -130,7 +130,7 @@ body main>ul {
     line-height: 20px
 }
 body main>ul li a {
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     text-decoration: underline;
 }
 
@@ -148,7 +148,7 @@ body main>p {
 }
 
 body main>p a {
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 body main>p b {
@@ -191,7 +191,7 @@ body main>ul.jump {
 body main>ul.jump li {
     list-style-type: decimal-leading-zero;
     list-style-position: inside;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 body main>ul.jump li::marker {
@@ -202,6 +202,35 @@ body main>ul.jump li:hover {
     background: black;
     color: white;
 }
+
+/* table.museum {
+    width: 100%;
+} */
+
+ul.museum {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap as needed */
+  }
+
+  /* Style for each list item */
+  ul.museum li {
+    flex: 1 0 calc(50% - 20px); /* Adjust the width of each column and the gap */
+  }
+
+  /* Style for the nested list items */
+  ul.exhibit {
+    padding-left: 0;
+  }
+
+  /* Style for the image in the nested list */
+  ul.exhibit img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px; /* Adjust the margin as needed */
+  }
 
 body main>table tr th {
     text-align: left;
@@ -282,7 +311,7 @@ body main ul.gallery li img {
 body main ul.gallery li h3 {
     font-family: "alte_haas_grotesk_regular", "Helvetica Neue", Helvetica, Arial;
     font-size: 30px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     line-height: 40px;
     max-width: 75%;
     margin-bottom: 10px;
@@ -291,7 +320,7 @@ body main ul.gallery li h3 {
 body main ul.gallery li h4 {
     font-family: "alte_haas_grotesk_bold", "Helvetica Neue", Helvetica, Arial;
     font-size: 20px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 body footer {
