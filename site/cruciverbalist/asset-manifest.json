@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/site/cruciverbalist/static/css/main.06d97b8c.css",
-    "main.js": "/site/cruciverbalist/static/js/main.88472b27.js",
+    "main.js": "/site/cruciverbalist/static/js/main.6061ff4b.js",
     "static/js/453.1b9dcbab.chunk.js": "/site/cruciverbalist/static/js/453.1b9dcbab.chunk.js",
     "index.html": "/site/cruciverbalist/index.html",
     "main.06d97b8c.css.map": "/site/cruciverbalist/static/css/main.06d97b8c.css.map",
-    "main.88472b27.js.map": "/site/cruciverbalist/static/js/main.88472b27.js.map",
+    "main.6061ff4b.js.map": "/site/cruciverbalist/static/js/main.6061ff4b.js.map",
     "453.1b9dcbab.chunk.js.map": "/site/cruciverbalist/static/js/453.1b9dcbab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06d97b8c.css",
-    "static/js/main.88472b27.js"
+    "static/js/main.6061ff4b.js"
   ]
 }
