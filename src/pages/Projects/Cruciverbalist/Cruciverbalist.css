@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+#playground {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#landing-page {
+  background-color: white;
+  font-family: 'EB Garamond';
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#landing-page h1 h2 {
+  font-family: 'EB Garamond';
+}
+
+#landing-page-components {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#landing-page-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  font-size: 24px;
+}
+
+#landing-page-input label {
+  font-weight: 500;
+}
+
+#landing-page-input input {
+  padding: 8px 12px;
+  font-size: 24px;
+  font-family: 'EB Garamond';
+  border: 2px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 20px;
+  font-family: 'EB Garamond';
+  border-radius: 10px;
+  border: none;
+  background-color: #8ea467;
+  color: white;
+  cursor: pointer;
+}
+
+#button-container {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.icon-button {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: none;
+  background-color: #8ea467;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #647449;
+}
+
+#build-page {
+  background-color: white;
+  font-family: 'EB Garamond';
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#build-page h1 h2 {
+  font-family: 'EB Garamond';
+}
+
+.crossword-grid {
+  display: grid;
+  width: 500px;
+  height: 500px;
+}
+
+#build-page-grid-row {
+  display: flex;
+}
+
+.grid-cell input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.5em;
+  user-select: none;
+}
+
+.grid-cell {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  background-color: #f9f9f9;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.switch-container {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left: 10px;
+}
+
+.switch .slider-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  border-radius: 50px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.slider-input:checked + .slider {
+  background-color: #8ea467;
+}
+
+.slider-input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider:hover {
+  background-color: #888;
+}
+
+.cell-index {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  font-size: 10px;
+  color: #333;
+  z-index: 1;
+}
+
+.cell-content {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.clue-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.clue-list {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #808080;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 100px;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.popup-content button {
+  transition: 0.2s;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  background: transparent;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+.ending-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  font-family: 'EB Garamond';
+  align-items: center;
+}
+
+.ending-overlay h1 {
+  font-family: 'EB Garamond';
+}
+
+.ending-content {
+  text-align: center;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ending-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.code-container {
+  width: 800px;
+  position: relative;
+  background-color: #f4f4f4;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: left;
+  font-family: monospace;
+  margin-bottom: 120px;
+  user-select: text;
+}
+
+.ending-overlay button {
+  padding: 10px 20px;
+  font-family: 'EB Garamond';
+  border-radius: 10px;
+  border: none;
+  background-color: #8ea467;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 8px;
+  right: 8px;
+}
+
+.ending-page-text {
+  font-size: 24px;
+  width: 600px;
+}

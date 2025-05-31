@@ -1,13 +1,46 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'alte_haas_grotesk_regular';
+  src: url('./media/fonts/alte_haas_grotesk_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-code {
+@font-face {
+  font-family: 'alte_haas_grotesk_bold';
+  src: url('./media/fonts/alte_haas_grotesk_bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'input_mono_regular';
+  src: url('./media/fonts/input_mono_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'input_mono_medium';
+  src: url('./media/fonts/input_mono_medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+html::selection {
+  background-color: #ddd;
+}
+
+body {
+  margin: 0;
+}
+
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
