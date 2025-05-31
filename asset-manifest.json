@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3400e627.css",
+    "main.js": "/static/js/main.2a3877c5.js",
+    "static/js/453.bb828c5d.chunk.js": "/static/js/453.bb828c5d.chunk.js",
+    "static/media/logo_black.png": "/static/media/logo_black.40f3870678258aaa173b.png",
+    "static/media/logo.png": "/static/media/logo.0b99ff780892b47ee0d3.png",
+    "static/media/instrument-0.wav": "/static/media/instrument-0.3e2678befd2077c8c624.wav",
+    "static/media/instrument-1.wav": "/static/media/instrument-1.855e04baad30ba11f273.wav",
+    "static/media/InknutAntiqua-Medium.ttf": "/static/media/InknutAntiqua-Medium.aa0a4ed6cb1e542d29ec.ttf",
+    "static/media/instrument-2.wav": "/static/media/instrument-2.7e947a6f45ebf4e1904d.wav",
+    "static/media/alte_haas_grotesk_regular.ttf": "/static/media/alte_haas_grotesk_regular.cd90ddee70cc5045d02e.ttf",
+    "static/media/alte_haas_grotesk_bold.ttf": "/static/media/alte_haas_grotesk_bold.6ea93a694a6bfbe54568.ttf",
+    "static/media/input_mono_medium.ttf": "/static/media/input_mono_medium.bb50ca7ffb0ca7cfc335.ttf",
+    "static/media/input_mono_regular.ttf": "/static/media/input_mono_regular.dfb4e4d09bd25b66e27b.ttf",
+    "static/media/img0.png": "/static/media/img0.244405f02e6d9b48f627.png",
+    "static/media/img1.png": "/static/media/img1.6f73de65644b953e1f65.png",
+    "static/media/instrument-3.wav": "/static/media/instrument-3.3dd15ee6db7eba1e8269.wav",
+    "static/media/instrument-4.wav": "/static/media/instrument-4.0e8640b3b3cdf9a142b0.wav",
+    "static/media/tileset.png": "/static/media/tileset.297db27134b639cb6f65.png",
+    "static/media/title.svg": "/static/media/title.b8bc8a37da01a1ccde2fa44f6f032033.svg",
+    "static/media/instrument-4.svg": "/static/media/instrument-4.15fb14e462cfeee3cbabb2be400ba04f.svg",
+    "static/media/instrument-2.svg": "/static/media/instrument-2.ae122e75feb59033954affd52e38a5a3.svg",
+    "static/media/clear-button.svg": "/static/media/clear-button.4877210b8905149e3002998107041823.svg",
+    "static/media/instrument-1.svg": "/static/media/instrument-1.b687e67cfdd9053047467fa01222b1b9.svg",
+    "static/media/instrument-0.svg": "/static/media/instrument-0.b1796a66fc65f39bedc0d77aeffadbb6.svg",
+    "index.html": "/index.html",
+    "static/media/instrument-3.svg": "/static/media/instrument-3.add3e36244f945c5573dcfe2f31da70d.svg",
+    "static/media/stop-button.svg": "/static/media/stop-button.e0df94679124bd4b7af48fee64b9424d.svg",
+    "static/media/play-button.svg": "/static/media/play-button.a0ad040a1bd4ffa7ea2b440d041345da.svg",
+    "main.3400e627.css.map": "/static/css/main.3400e627.css.map",
+    "main.2a3877c5.js.map": "/static/js/main.2a3877c5.js.map",
+    "453.bb828c5d.chunk.js.map": "/static/js/453.bb828c5d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3400e627.css",
+    "static/js/main.2a3877c5.js"
+  ]
+}
